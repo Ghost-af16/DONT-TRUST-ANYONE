@@ -1,0 +1,59 @@
+@media (max-aspect-ratio: 4 / 3) {
+  .forest-scene {
+    left: 68%;
+    transform: translateX(-68%);
+  }
+
+  .hattori {
+    left: 61%;
+    height: 38%;
+  }
+
+  .home-menu {
+    top: 30%;
+    left: 8%;
+  }
+}
+
+@media (max-aspect-ratio: 4 / 5) {
+  .forest-scene {
+    left: 76%;
+    transform: translateX(-76%);
+  }
+
+  .hattori {
+    bottom: 8%;
+    left: 64%;
+    height: 31%;
+  }
+
+  .home-menu {
+    top: 26%;
+    max-width: 84%;
+    left: max(8%, env(safe-area-inset-left));
+    gap: 24px;
+  }
+
+  .menu-button {
+    font-size: clamp(32px, 9vw, 50px);
+  }
+}
+
+@media (max-height: 650px) and (max-aspect-ratio: 4 / 5) {
+  .home-menu {
+    top: 16%;
+    gap: 18px;
+  }
+}
+
+@media (max-height: 500px) and (min-aspect-ratio: 4 / 5) {
+  .home-menu {
+    top: 27%;
+    left: 10%;
+    gap: 16px;
+  }
+
+  .menu-button {
+    font-size: clamp(28px, 7vh, 36px);
+  }
+}

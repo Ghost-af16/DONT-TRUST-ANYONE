@@ -20,3 +20,39 @@
   height: 100%;
   object-fit: cover;
 }
+
+.hattori {
+  position: absolute;
+  bottom: 9%;
+  left: 60%;
+  width: auto;
+  height: 42%;
+  transform: translateX(-50%);
+}
+
+.home-menu {
+  position: absolute;
+  top: 38%;
+  left: 16%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 35%;
+  gap: clamp(20px, 4vh, 40px);
+}
+
+.menu-button {
+  max-width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border: 0;
+  background: transparent;
+  color: #e6e5d9;
+  font-size: clamp(32px, 5.6vh, 66px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-shadow: 3px 3px 0 #101a22;
+  transition: color 120ms, transform 120ms;
+}

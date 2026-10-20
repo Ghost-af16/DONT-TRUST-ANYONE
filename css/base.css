@@ -32,3 +32,10 @@ main {
   inset: 0;
   overflow: hidden;
 }
+
+button {
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
