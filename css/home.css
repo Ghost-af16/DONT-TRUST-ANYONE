@@ -56,3 +56,15 @@
   text-shadow: 3px 3px 0 #101a22;
   transition: color 120ms, transform 120ms;
 }
+
+.menu-button:hover,
+.menu-button:focus-visible {
+  color: #d9d4aa;
+  transform: translateX(5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-button {
+    transition: none;
+  }
+}

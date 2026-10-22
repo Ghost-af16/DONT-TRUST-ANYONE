@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/rules.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <main>
@@ -17,9 +19,21 @@
         <img class="hattori" src="ninja-hattori.png" alt="" width="564" height="875" draggable="false">
       </div>
       <nav class="home-menu" aria-label="Game menu">
-        <button id="play-button" class="menu-button" type="button" disabled>PLAY</button>
-        <button id="rules-button" class="menu-button" type="button" disabled>RULES</button>
+        <button id="play-button" class="menu-button" type="button">PLAY</button>
+        <button id="rules-button" class="menu-button" type="button">RULES</button>
       </nav>
+    </section>
+
+    <section id="game-screen" class="screen preview-screen" aria-label="Climb inside the well" tabindex="-1" hidden>
+      <h1>Climb inside the well</h1>
+      <button id="game-back-button" class="back-button" type="button">BACK TO HOME</button>
+    </section>
+
+    <section id="rules-screen" class="screen preview-screen" aria-labelledby="rules-heading" hidden>
+      <div class="rules-paper">
+        <h1 id="rules-heading">HOW TO ESCAPE</h1>
+        <button id="rules-back-button" class="back-button" type="button">BACK</button>
+      </div>
     </section>
   </main>
 </body>

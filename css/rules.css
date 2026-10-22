@@ -1,0 +1,7 @@
+.rules-paper {
+  width: min(620px, 100%);
+  padding: 5px;
+  background: #504633;
+  clip-path: polygon(1% 0, 98% 1%, 100% 7%, 99% 96%, 96% 100%, 2% 98%, 0 91%, 0.6% 4%);
+  transform: rotate(-0.8deg);
+}
