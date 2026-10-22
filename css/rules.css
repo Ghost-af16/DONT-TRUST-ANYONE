@@ -1,7 +1,113 @@
+.rules-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: url("../homepage-background.png") center bottom / cover no-repeat;
+  isolation: isolate;
+}
+
+.rules-screen::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(8, 15, 21, 0.22);
+  content: "";
+}
+
 .rules-paper {
   width: min(620px, 100%);
   padding: 5px;
   background: #504633;
   clip-path: polygon(1% 0, 98% 1%, 100% 7%, 99% 96%, 96% 100%, 2% 98%, 0 91%, 0.6% 4%);
   transform: rotate(-0.8deg);
+}
+
+.rules-paper-content {
+  padding: 42px 38px 26px;
+  background: #c5bb91;
+  color: #352e22;
+  clip-path: polygon(0.8% 0, 98% 0.7%, 100% 6%, 99% 97%, 96% 100%, 1% 98%, 0 90%);
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+
+.rules-paper h1 {
+  margin: 0 0 24px;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+.rules-paper p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.45;
+}
+
+.rules-instructions p + p {
+  margin-top: 14px;
+}
+
+.rules-paper .rules-reminder {
+  margin-top: 28px;
+}
+
+.rules-paper .rules-warning {
+  margin: 12px 0 18px;
+  color: #6b3029;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.rules-back-button {
+  display: block;
+  margin: 0 auto;
+  color: #352e22;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+.rules-back-button:hover,
+.rules-back-button:focus-visible {
+  color: #6b3029;
+  transform: translateX(5px);
+}
+
+.rules-back-button:focus-visible {
+  outline-color: #6b3029;
+}
+
+@media (max-width: 600px) {
+  .rules-screen {
+    padding: 18px;
+    background-position: 76% bottom;
+  }
+
+  .rules-paper-content {
+    padding: 24px 20px 18px;
+  }
+
+  .rules-paper h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  .rules-paper p {
+    font-size: 17px;
+    line-height: 1.4;
+  }
+
+  .rules-instructions p + p {
+    margin-top: 10px;
+  }
+
+  .rules-paper .rules-reminder {
+    margin-top: 20px;
+  }
+
+  .rules-paper .rules-warning {
+    margin: 10px 0 14px;
+    font-size: 27px;
+  }
 }

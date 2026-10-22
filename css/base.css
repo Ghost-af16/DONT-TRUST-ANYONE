@@ -45,6 +45,21 @@ button:focus-visible {
   outline-offset: 6px;
 }
 
+.back-button {
+  min-height: 48px;
+  padding: 10px 18px;
+  border: 0;
+  background: transparent;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.back-button:hover,
+.back-button:focus-visible {
+  color: #d9d4aa;
+}
+
 .preview-screen {
   display: flex;
   flex-direction: column;
