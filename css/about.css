@@ -1,0 +1,74 @@
+.about-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: url("../homepage-background.png") center bottom / cover no-repeat;
+  isolation: isolate;
+}
+
+.about-screen::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(8, 15, 21, 0.22);
+  content: "";
+}
+
+.about-paper {
+  width: min(680px, 100%);
+  padding: 5px;
+  background: #504633;
+  clip-path: polygon(1% 0, 98% 1%, 100% 7%, 99% 96%, 96% 100%, 2% 98%, 0 91%, 0.6% 4%);
+  transform: rotate(-0.8deg);
+}
+
+.about-paper-content {
+  padding: 30px 38px 20px;
+  background: #c5bb91;
+  color: #352e22;
+  clip-path: polygon(0.8% 0, 98% 0.7%, 100% 6%, 99% 97%, 96% 100%, 1% 98%, 0 90%);
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+}
+
+.about-paper h1 {
+  margin: 0 0 22px;
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+.about-paper p {
+  margin: 0 0 12px;
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+.about-paper .about-reminder {
+  margin-top: 20px;
+}
+
+.about-paper .about-warning {
+  color: #6b3029;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.about-back-button {
+  display: block;
+  margin: 0 auto;
+  color: #352e22;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+}
+
+.about-back-button:hover,
+.about-back-button:focus-visible {
+  color: #6b3029;
+  transform: translateX(5px);
+}
+
+.about-back-button:focus-visible {
+  outline-color: #6b3029;
+}
