@@ -1,0 +1,76 @@
+.intro-screen {
+  background: #2d3c3e url("../well-inside-background.png") center / cover no-repeat;
+}
+
+.intro-screen {
+  isolation: isolate;
+  outline: none;
+}
+
+.intro-light {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(100%, 177.778vh);
+  width: min(100%, 177.778dvh);
+  height: 100%;
+  background: #ebe1b4;
+  clip-path: polygon(46% 15%, 54% 15%, 57% 37%, 62% 63%, 66% 87%, 35% 86%, 40% 64%, 43% 38%);
+  opacity: 0;
+  transform: translateX(-50%);
+  transition: opacity 300ms;
+  pointer-events: none;
+}
+
+.intro-screen.light-active .intro-light {
+  opacity: 0.1;
+}
+
+.intro-hattori {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  width: auto;
+  height: 20%;
+  transform: translateX(-50%);
+  user-select: none;
+  pointer-events: none;
+}
+
+.intro-message {
+  position: absolute;
+  top: 29%;
+  left: 50%;
+  width: min(700px, 90%);
+  color: #e6e1ca;
+  font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
+  text-shadow: 2px 2px 2px #0c171d;
+  transform: translateX(-50%);
+}
+
+.intro-line {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.intro-warning {
+  color: #d9d4aa;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.understand-button {
+  display: block;
+  margin: 20px auto 0;
+  color: #e6e1ca;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  text-shadow: 2px 2px 2px #0c171d;
+}
+
+.well-preview {
+  background: #2d3c3e url("../well-inside-background.png") center / cover no-repeat;
+  text-shadow: 2px 2px 2px #0c171d;
+}
