@@ -1,0 +1,15 @@
+.game-screen {
+  background: #2d3c3e url("../well-inside-background.png") center / cover no-repeat;
+  outline: none;
+}
+
+.game-hattori {
+  position: absolute;
+  z-index: 1;
+  width: auto;
+  height: var(--character-height);
+  transform: translate(-50%, -100%);
+  transform-origin: 50% 100%;
+  user-select: none;
+  pointer-events: none;
+}

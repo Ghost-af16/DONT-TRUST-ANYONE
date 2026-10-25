@@ -59,20 +59,3 @@ button:focus-visible {
 .back-button:focus-visible {
   color: #d9d4aa;
 }
-
-.preview-screen {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  padding: 28px;
-  background: #101a22;
-  text-align: center;
-}
-
-.preview-screen h1 {
-  margin: 0;
-  font-size: clamp(28px, 5vw, 42px);
-  letter-spacing: 0.06em;
-}

@@ -13,6 +13,8 @@ const menuButtons = [playButton, rulesButton, aboutButton];
 let returnButton = playButton;
 
 function showHome() {
+  resetIntro();
+  resetGame();
   homeScreen.hidden = false;
   gameScreen.hidden = true;
   rulesScreen.hidden = true;
@@ -22,6 +24,8 @@ function showHome() {
 }
 
 function showRules() {
+  resetIntro();
+  resetGame();
   homeScreen.hidden = true;
   gameScreen.hidden = true;
   aboutScreen.hidden = true;
@@ -32,6 +36,8 @@ function showRules() {
 }
 
 function showAbout() {
+  resetIntro();
+  resetGame();
   homeScreen.hidden = true;
   gameScreen.hidden = true;
   rulesScreen.hidden = true;
@@ -79,13 +85,6 @@ function returnFromAbout(event) {
   }
 }
 
-function returnFromGame(event) {
-  if (event.key === "Escape" && !gameScreen.hidden) {
-    event.preventDefault();
-    showHome();
-  }
-}
-
 rulesButton.addEventListener("click", showRules);
 aboutButton.addEventListener("click", showAbout);
 gameBackButton.addEventListener("click", showHome);
@@ -94,4 +93,3 @@ aboutBackButton.addEventListener("click", showHome);
 document.addEventListener("keydown", moveMenuSelection);
 document.addEventListener("keydown", returnFromRules);
 document.addEventListener("keydown", returnFromAbout);
-document.addEventListener("keydown", returnFromGame);

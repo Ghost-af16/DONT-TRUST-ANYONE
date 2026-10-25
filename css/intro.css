@@ -49,10 +49,30 @@
   transform: translateX(-50%);
 }
 
+.intro-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
 .intro-line {
+  visibility: hidden;
   margin: 0;
   font-size: 20px;
   line-height: 1.4;
+  opacity: 0;
+  transition: opacity 240ms;
+}
+
+.intro-line.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+h1.intro-line {
+  font-size: 28px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
 }
 
 .intro-warning {
@@ -70,7 +90,15 @@
   text-shadow: 2px 2px 2px #0c171d;
 }
 
-.well-preview {
-  background: #2d3c3e url("../well-inside-background.png") center / cover no-repeat;
-  text-shadow: 2px 2px 2px #0c171d;
+.understand-button:hover,
+.understand-button:focus-visible {
+  color: #d9d4aa;
+  transform: translateX(5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-light,
+  .intro-line {
+    transition: none;
+  }
 }
