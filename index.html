@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/game.css">
   <script src="js/main.js" defer></script>
   <script src="js/intro.js" defer></script>
+  <script src="js/level.js" defer></script>
   <script src="js/game.js" defer></script>
 </head>
 <body>
@@ -47,7 +48,12 @@
     </section>
 
     <section id="game-screen" class="screen game-screen" aria-label="Climb inside the well" tabindex="-1" hidden>
-      <img id="game-hattori" class="game-hattori" src="ninja-hattori.png" alt="Ninja Hattori standing at the bottom of the well" width="564" height="875" draggable="false">
+      <div class="game-stage">
+        <div id="game-world" class="game-world">
+          <div id="game-steps" aria-hidden="true"></div>
+          <img id="game-hattori" class="game-hattori" src="ninja-hattori.png" alt="Ninja Hattori standing on a stone ledge" width="564" height="875" draggable="false">
+        </div>
+      </div>
       <button id="game-back-button" class="back-button" type="button">BACK TO HOME</button>
     </section>
 

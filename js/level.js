@@ -1,0 +1,35 @@
+const steps = [
+  { x: 48, y: 0, scale: 1, rotation: -1 },
+  { x: 61, y: 140, scale: 0.95, rotation: 1 },
+  { x: 40, y: 270, scale: 1.05, rotation: -2 },
+  { x: 54, y: 415, scale: 1, rotation: 0 },
+  { x: 35, y: 555, scale: 0.95, rotation: 2 },
+  { x: 59, y: 690, scale: 1.1, rotation: -1 },
+  { x: 46, y: 840, scale: 1, rotation: 1 },
+  { x: 64, y: 975, scale: 0.9, rotation: -2 },
+  { x: 39, y: 1115, scale: 1.05, rotation: 0 },
+  { x: 53, y: 1260, scale: 0.95, rotation: 2 },
+  { x: 34, y: 1390, scale: 1, rotation: -1 },
+  { x: 60, y: 1535, scale: 1.05, rotation: 1 },
+  { x: 43, y: 1675, scale: 0.9, rotation: -2 },
+  { x: 56, y: 1810, scale: 1.1, rotation: 0 },
+  { x: 47, y: 1960, scale: 1, rotation: 1 },
+  { x: 52, y: 2100, scale: 0.95, rotation: -1 },
+  { x: 36, y: 2240, scale: 1, rotation: 2 },
+  { x: 59, y: 2375, scale: 1.05, rotation: -1 },
+  { x: 44, y: 2520, scale: 0.95, rotation: 1 },
+  { x: 63, y: 2660, scale: 1, rotation: -2 },
+  { x: 38, y: 2790, scale: 1.1, rotation: 0 },
+  { x: 54, y: 2935, scale: 0.95, rotation: 2 },
+  { x: 35, y: 3075, scale: 1, rotation: -1 },
+  { x: 61, y: 3210, scale: 1.05, rotation: 1 },
+  { x: 42, y: 3355, scale: 0.9, rotation: -2 },
+  { x: 57, y: 3495, scale: 1, rotation: 0 },
+  { x: 45, y: 3630, scale: 1.05, rotation: 1 },
+  { x: 50, y: 3780, scale: 1, rotation: -1 },
+  { x: 46, y: 3840, scale: 0.95, rotation: 1 },
+  { x: 51, y: 3900, scale: 1, rotation: 0 }
+];
+
+const questionStops = [0, 2, 5, 7, 10, 12, 15, 17, 20, 22, 25, 27];
+const finalStep = 29;

@@ -3,6 +3,30 @@
   outline: none;
 }
 
+.game-stage {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(18% 0 0);
+}
+
+.game-world {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: calc(var(--world-width) / -2);
+  width: var(--world-width);
+  height: var(--world-height);
+}
+
+.game-step {
+  position: absolute;
+  width: var(--step-width);
+  height: auto;
+  transform: translate(-50%, -35%) rotate(var(--step-rotation));
+  user-select: none;
+  pointer-events: none;
+}
+
 .game-hattori {
   position: absolute;
   z-index: 1;
