@@ -3,8 +3,11 @@ const gameSteps = document.querySelector("#game-steps");
 const gameHattori = document.querySelector("#game-hattori");
 
 let currentStep = 0;
+let currentQuestionStop = 0;
+let isClimbing = false;
 let cameraOffset = 0;
 let gameScale = 1;
+let gameTimers = [];
 
 steps.forEach(function (step) {
   const image = document.createElement("img");
@@ -51,6 +54,7 @@ function layoutGame() {
   if (gameScreen.hidden) {
     return;
   }
+  gameWorld.classList.remove("is-climbing");
   const screenWidth = gameScreen.clientWidth;
   const screenHeight = gameScreen.clientHeight;
   const feetPosition = cameraFeetPosition();
@@ -62,11 +66,22 @@ function layoutGame() {
     image.style.setProperty("--step-width", 180 * gameScale * steps[index].scale + "px");
   });
   positionHattori();
+  if (isClimbing) {
+    gameWorld.getBoundingClientRect();
+    gameWorld.classList.add("is-climbing");
+  }
 }
 
 function resetGame() {
+  gameTimers.forEach(function (timer) {
+    clearTimeout(timer);
+  });
+  gameTimers = [];
   currentStep = 0;
+  currentQuestionStop = 0;
+  isClimbing = false;
   cameraOffset = 0;
+  gameWorld.classList.remove("is-climbing");
   gameWorld.style.transform = "translateY(0px)";
   gameHattori.style.left = steps[0].x + "%";
   gameHattori.style.top = stepY(0) + "px";
@@ -82,6 +97,30 @@ function showGame() {
   gameScreen.hidden = false;
   gameScreen.focus();
   layoutGame();
+  gameTimers.push(setTimeout(beginClimb, 600));
+}
+
+function beginClimb() {
+  isClimbing = true;
+  gameScreen.focus();
+  gameWorld.classList.add("is-climbing");
+  climbNextStep();
+}
+
+function climbNextStep() {
+  const nextStop = questionStops[currentQuestionStop + 1];
+  const targetStep = nextStop === undefined ? finalStep : nextStop;
+  currentStep += 1;
+  positionHattori();
+  gameTimers.push(setTimeout(function () {
+    if (currentStep < targetStep) {
+      gameTimers.push(setTimeout(climbNextStep, 100));
+      return;
+    }
+    isClimbing = false;
+    gameWorld.classList.remove("is-climbing");
+    currentQuestionStop += 1;
+  }, 450));
 }
 
 function returnFromGame(event) {

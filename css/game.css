@@ -37,3 +37,11 @@
   user-select: none;
   pointer-events: none;
 }
+
+.game-world.is-climbing {
+  transition: transform 400ms ease-in-out;
+}
+
+.game-world.is-climbing .game-hattori {
+  transition: top 400ms ease-in-out, left 400ms ease-in-out;
+}
