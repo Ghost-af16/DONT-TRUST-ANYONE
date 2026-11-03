@@ -45,3 +45,18 @@
 .game-world.is-climbing .game-hattori {
   transition: top 400ms ease-in-out, left 400ms ease-in-out;
 }
+
+.game-question {
+  position: absolute;
+  bottom: max(4%, env(safe-area-inset-bottom));
+  left: 50%;
+  width: min(680px, 90%);
+  text-align: center;
+  transform: translateX(-50%);
+  padding: 18px 20px 10px;
+  border: 3px solid #302e26;
+  background: #c4b58c;
+  color: #302e26;
+  clip-path: polygon(1% 2%, 98% 0%, 100% 96%, 2% 100%, 0% 48%);
+  box-shadow: inset 0 0 0 2px #766b50;
+}

@@ -15,6 +15,7 @@
   <script src="js/main.js" defer></script>
   <script src="js/intro.js" defer></script>
   <script src="js/level.js" defer></script>
+  <script src="js/questions.js" defer></script>
   <script src="js/game.js" defer></script>
 </head>
 <body>
@@ -53,6 +54,17 @@
           <div id="game-steps" aria-hidden="true"></div>
           <img id="game-hattori" class="game-hattori" src="ninja-hattori.png" alt="Ninja Hattori standing on a stone ledge" width="564" height="875" draggable="false">
         </div>
+      </div>
+      <div id="game-question" class="game-question" hidden>
+        <p id="question-number" class="question-number"></p>
+        <h1 id="question-text"></h1>
+        <div class="game-answers">
+          <button class="answer-button" type="button"></button>
+          <button class="answer-button" type="button"></button>
+          <button class="answer-button" type="button"></button>
+          <button class="answer-button" type="button"></button>
+        </div>
+        <p id="game-feedback" class="game-feedback" aria-live="polite"></p>
       </div>
       <button id="game-back-button" class="back-button" type="button">BACK TO HOME</button>
     </section>
