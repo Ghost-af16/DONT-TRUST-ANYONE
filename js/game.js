@@ -142,7 +142,18 @@ function chooseAnswer(index) {
   });
 
   const question = questionOrder[currentQuestionStop];
-  gameFeedback.textContent = "ABCD"[index] + ". " + question.options[index];
+  const correct = index === question.correct;
+  gameFeedback.textContent = correct ? "CORRECT!" : "WRONG!";
+  gameTimers.push(setTimeout(function () {
+    if (correct) {
+      beginClimb();
+    } else {
+      answerLocked = false;
+      answerButtons.forEach(function (button) {
+        button.disabled = false;
+      });
+    }
+  }, 600));
 }
 
 function beginClimb() {
@@ -165,7 +176,12 @@ function climbNextStep() {
     }
     isClimbing = false;
     gameWorld.classList.remove("is-climbing");
-    currentQuestionStop += 1;
+    if (nextStop === undefined || currentQuestionStop + 1 === questionOrder.length) {
+      showHome();
+    } else {
+      currentQuestionStop += 1;
+      showQuestion();
+    }
   }, 450));
 }
 
