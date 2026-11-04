@@ -46,6 +46,33 @@
   transition: top 400ms ease-in-out, left 400ms ease-in-out;
 }
 
+.game-world.is-falling {
+  transition: transform var(--fall-duration) cubic-bezier(0.35, 0.05, 0.65, 1);
+}
+
+.game-world.is-falling .game-hattori {
+  transition: top var(--fall-duration) cubic-bezier(0.35, 0.05, 0.65, 1), left var(--fall-duration) linear;
+  animation: fall-tumble var(--fall-duration) linear;
+}
+
+@keyframes fall-tumble {
+  0%, 100% {
+    transform: translate(-50%, -100%) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(-50%, -100%) rotate(12deg);
+  }
+
+  55% {
+    transform: translate(-50%, -100%) rotate(-10deg);
+  }
+
+  80% {
+    transform: translate(-50%, -100%) rotate(8deg);
+  }
+}
+
 .game-question {
   position: absolute;
   bottom: max(4%, env(safe-area-inset-bottom));

@@ -10,6 +10,7 @@ const gameFeedback = document.querySelector("#game-feedback");
 let currentStep = 0;
 let currentQuestionStop = 0;
 let isClimbing = false;
+let isFalling = false;
 let answerLocked = true;
 let cameraOffset = 0;
 let gameScale = 1;
@@ -39,6 +40,12 @@ function stepY(index) {
 }
 
 function cameraFeetPosition() {
+  if (gameScreen.clientHeight < 500) {
+    return 0.36;
+  }
+  if (gameScreen.clientWidth < 600 && gameScreen.clientHeight < 650) {
+    return 0.4;
+  }
   return 0.55;
 }
 
@@ -60,9 +67,13 @@ function layoutGame() {
   if (gameScreen.hidden) {
     return;
   }
-  gameWorld.classList.remove("is-climbing");
+  gameWorld.classList.remove("is-climbing", "is-falling");
   const screenWidth = gameScreen.clientWidth;
   const screenHeight = gameScreen.clientHeight;
+  const widthScale = screenWidth / 600;
+  const heightScale = screenHeight / 900;
+  const fittedScale = Math.min(1, widthScale, heightScale);
+  gameScale = Math.max(0.5, fittedScale);
   const feetPosition = cameraFeetPosition();
   gameWorld.style.setProperty("--world-width", Math.min(screenWidth * 0.92, 700 * gameScale) + "px");
   gameWorld.style.setProperty("--world-height", stepY(0) + screenHeight * (1 - feetPosition) + "px");
@@ -71,10 +82,14 @@ function layoutGame() {
     image.style.top = stepY(index) + "px";
     image.style.setProperty("--step-width", 180 * gameScale * steps[index].scale + "px");
   });
-  positionHattori();
-  if (isClimbing) {
+  if (isFalling) {
+    positionHattori(0, currentStep === 0 ? 80 * gameScale : 0);
+  } else {
+    positionHattori();
+  }
+  if (isClimbing || isFalling) {
     gameWorld.getBoundingClientRect();
-    gameWorld.classList.add("is-climbing");
+    gameWorld.classList.add(isFalling ? "is-falling" : "is-climbing");
   }
 }
 
@@ -86,9 +101,11 @@ function resetGame() {
   currentStep = 0;
   currentQuestionStop = 0;
   isClimbing = false;
+  isFalling = false;
   answerLocked = true;
   cameraOffset = 0;
-  gameWorld.classList.remove("is-climbing");
+  gameWorld.classList.remove("is-climbing", "is-falling");
+  gameWorld.style.removeProperty("--fall-duration");
   gameWorld.style.transform = "translateY(0px)";
   gameHattori.style.left = steps[0].x + "%";
   gameHattori.style.top = stepY(0) + "px";
@@ -116,7 +133,7 @@ function showGame() {
 }
 
 function showQuestion() {
-  if (gameScreen.hidden || isClimbing) {
+  if (gameScreen.hidden || isClimbing || isFalling) {
     return;
   }
   const question = questionOrder[currentQuestionStop];
@@ -148,10 +165,7 @@ function chooseAnswer(index) {
     if (correct) {
       beginClimb();
     } else {
-      answerLocked = false;
-      answerButtons.forEach(function (button) {
-        button.disabled = false;
-      });
+      beginNormalFall();
     }
   }, 600));
 }
@@ -183,6 +197,33 @@ function climbNextStep() {
       showQuestion();
     }
   }, 450));
+}
+
+function beginNormalFall() {
+  const duration = 1000 + currentStep / questionStops[11] * 800;
+  startFall(duration, function () {
+    currentQuestionStop = 0;
+    gameTimers.push(setTimeout(showQuestion, 450));
+  });
+}
+
+function startFall(duration, finishFall) {
+  gameQuestion.hidden = true;
+  gameScreen.focus();
+  isFalling = true;
+  gameWorld.style.setProperty("--fall-duration", duration + "ms");
+  gameWorld.classList.add("is-falling");
+  gameHattori.alt = "Ninja Hattori falling to the bottom of the well";
+  positionHattori(0, currentStep === 0 ? 80 * gameScale : 0);
+  gameTimers.push(setTimeout(function () {
+    gameWorld.classList.remove("is-falling");
+    isFalling = false;
+    currentStep = 0;
+    gameHattori.alt = "Ninja Hattori standing on a stone ledge";
+    positionHattori();
+    gameFeedback.textContent = "";
+    finishFall();
+  }, duration + 50));
 }
 
 function returnFromGame(event) {
